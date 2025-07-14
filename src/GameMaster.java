@@ -1,8 +1,8 @@
 public class GameMaster {
     public static void main(String[] args) {
-        Hero h = new Hero("勇者",100,"剣");
+        Hero hero = new Hero("勇者",100,"剣");
         Character[] ArrayList1 = new Character[3];
-        ArrayList1[0] = h;
+        ArrayList1[0] = hero;
         ArrayList1[1] = new Wizard("魔法使い",60,20);
         ArrayList1[2] = new Thief("盗賊",70);
 
@@ -44,7 +44,7 @@ public class GameMaster {
         }
         System.out.println("ダメージを受けた" + ArrayList1[0].getName() + "が突然光りだした！");
         System.out.println(ArrayList1[0].getName() + "はスーパーヒーローに変身した！");
-        ArrayList1[0] = new SuperHero(h);
+        ArrayList1[0] = new SuperHero(hero);
         for (int i = 0; i < 3; i++) {
             try {
                 ArrayList1[0].attack(ArrayList2[i]);
