@@ -3,7 +3,7 @@ public class GameMaster {
         Hero h = new Hero("勇者",100,"剣");
         Character[] ArrayList1 = new Character[3];
         ArrayList1[0] = h;
-        ArrayList1[1] = new Wizard("魔法使い",60,114514);
+        ArrayList1[1] = new Wizard("魔法使い",60,20);
         ArrayList1[2] = new Thief("盗賊",70);
 
         Monster[] ArrayList2 = new Monster[3];
