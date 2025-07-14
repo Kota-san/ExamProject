@@ -2,14 +2,19 @@ public class GameMaster {
     public static void main(String[] args) {
         Hero hero = new Hero("勇者",100,"剣");
         Character[] ArrayList1 = new Character[3];
-        ArrayList1[0] = hero;
-        ArrayList1[1] = new Wizard("魔法使い",60,20);
-        ArrayList1[2] = new Thief("盗賊",70);
-
         Monster[] ArrayList2 = new Monster[3];
-        ArrayList2[0] = new Matango("お化けキノコ",45);
-        ArrayList2[1] = new Goblin("ゴブリン",50);
-        ArrayList2[2] = new Slime("スライム",40);
+
+        try {
+            ArrayList1[0] = hero;
+            ArrayList1[1] = new Wizard("魔法使い",60,20);
+            ArrayList1[2] = new Thief("盗賊",70);
+
+            ArrayList2[0] = new Matango("お化けキノコ",45);
+            ArrayList2[1] = new Goblin("ゴブリン",50);
+            ArrayList2[2] = new Slime("スライム",40);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
 
         System.out.println("---味方パーティ---");
         ArrayList1[0].showStatus();
