@@ -1,4 +1,6 @@
 public class Thief extends Character{
+    private String name;
+    private int hp;
     public Thief(String name, int hp){
         super(name, hp);
     }

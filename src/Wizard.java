@@ -1,4 +1,6 @@
 public class Wizard extends Character{
+    private String name;
+    private int hp;
     private int mp;
     public Wizard(String name, int hp,int mp){
         super(name, hp);

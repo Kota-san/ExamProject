@@ -1,4 +1,6 @@
 public class Matango extends Monster{
+    private String name;
+    private int hp;
     public Matango(String name, int hp, char suffix) {
         super(name, hp, suffix);
     }

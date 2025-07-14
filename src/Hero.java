@@ -1,4 +1,6 @@
 public class Hero extends Character{
+    private String name;
+    private int hp;
     private String weapon;
     public Hero(String name, int hp, String weapon){
         super(name, hp);
