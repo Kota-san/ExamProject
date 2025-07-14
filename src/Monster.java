@@ -1,11 +1,10 @@
 public abstract class Monster implements Creature{
     String name;
     private int hp;
-    char suffix;
-    public Monster(String name, int hp, char suffix) {
+    private char suffix = 'A';
+    public Monster(String name, int hp) {
         this.name = name;
         this.hp = hp;
-        this.suffix = suffix;
     }
     public char getSuffix() {
         return this.suffix;

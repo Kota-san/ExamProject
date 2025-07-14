@@ -7,9 +7,9 @@ public class GameMaster {
         ArrayList1[2] = new Thief("盗賊",70);
 
         Monster[] ArrayList2 = new Monster[3];
-        ArrayList2[0] = new Matango("お化けキノコ",45,'A');
-        ArrayList2[1] = new Goblin("ゴブリン",50,'A');
-        ArrayList2[2] = new Slime("スライム",40,'A');
+        ArrayList2[0] = new Matango("お化けキノコ",45);
+        ArrayList2[1] = new Goblin("ゴブリン",50);
+        ArrayList2[2] = new Slime("スライム",40);
 
         System.out.println("---味方パーティ---");
         ArrayList1[0].showStatus();
