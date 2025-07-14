@@ -12,7 +12,7 @@ public abstract class Character implements Creature{
         return this.hp;
     }
     public void setHp(int hp) {
-        if (hp <= 0) {
+        if (hp < 0) {
             throw new IllegalArgumentException("初期設定に誤りがあるため、キャラクターを作成できませんでした");
         }
         this.hp = hp;

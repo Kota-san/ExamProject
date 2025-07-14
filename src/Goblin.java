@@ -1,6 +1,4 @@
 public class Goblin extends Monster{
-    private String name;
-    private int hp;
     public Goblin(String name, int hp, char suffix) {
         super(name, hp, suffix);
     }

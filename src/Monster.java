@@ -1,5 +1,5 @@
 public abstract class Monster implements Creature{
-    private String name;
+    String name;
     private int hp;
     char suffix;
     public Monster(String name, int hp, char suffix) {
@@ -14,7 +14,7 @@ public abstract class Monster implements Creature{
         return this.hp;
     }
     public void setHp(int hp) {
-        if (hp <= 0) {
+        if (hp < 0) {
             throw new IllegalArgumentException("初期設定に誤りがあるため、キャラクターを作成できませんでした");
         }
         this.hp = hp;
