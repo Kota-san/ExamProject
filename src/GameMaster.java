@@ -82,19 +82,19 @@ public class GameMaster {
         if(ArrayList2[0].isAlive()) {
             System.out.println("生存状況：生存");
         }else{
-            System.out.println("生存状況：戦闘不能");
+            System.out.println("生存状況：討伐済み");
         }
         ArrayList2[1].showStatus();
         if(ArrayList2[1].isAlive()) {
             System.out.println("生存状況：生存");
         }else{
-            System.out.println("生存状況：戦闘不能");
+            System.out.println("生存状況：討伐済み");
         }
         ArrayList2[2].showStatus();
         if(ArrayList2[2].isAlive()) {
             System.out.println("生存状況：生存");
         }else{
-            System.out.println("生存状況：戦闘不能");
+            System.out.println("生存状況：討伐済み");
         }
     }
 }
