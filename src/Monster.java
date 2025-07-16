@@ -23,10 +23,8 @@ public abstract class Monster implements Creature{
     }
     public final boolean isAlive(){
         if (this.hp > 0) {
-            System.out.println("生存状況：生存");
             return true;
         }else{
-            System.out.println("生存状況：討伐済み");
             return false;
         }
     }

@@ -60,17 +60,41 @@ public class GameMaster {
         }
         System.out.println("---味方パーティ最終ステータス---");
         ArrayList1[0].showStatus();
-        ArrayList1[0].isAlive();
+        if(ArrayList1[0].isAlive()) {
+            System.out.println("生存状況：生存");
+        }else{
+            System.out.println("生存状況：戦闘不能");
+        }
         ArrayList1[1].showStatus();
-        ArrayList1[1].isAlive();
+        if(ArrayList1[1].isAlive()) {
+            System.out.println("生存状況：生存");
+        }else{
+            System.out.println("生存状況：戦闘不能");
+        }
         ArrayList1[2].showStatus();
-        ArrayList1[2].isAlive();
+        if(ArrayList1[2].isAlive()) {
+            System.out.println("生存状況：生存");
+        }else{
+            System.out.println("生存状況：戦闘不能");
+        }
         System.out.println("---敵パーティ最終ステータス---");
         ArrayList2[0].showStatus();
-        ArrayList2[0].isAlive();
+        if(ArrayList2[0].isAlive()) {
+            System.out.println("生存状況：生存");
+        }else{
+            System.out.println("生存状況：戦闘不能");
+        }
         ArrayList2[1].showStatus();
-        ArrayList2[1].isAlive();
+        if(ArrayList2[1].isAlive()) {
+            System.out.println("生存状況：生存");
+        }else{
+            System.out.println("生存状況：戦闘不能");
+        }
         ArrayList2[2].showStatus();
-        ArrayList2[2].isAlive();
+        if(ArrayList2[2].isAlive()) {
+            System.out.println("生存状況：生存");
+        }else{
+            System.out.println("生存状況：戦闘不能");
+        }
     }
 }
