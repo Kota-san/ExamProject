@@ -22,7 +22,7 @@ public abstract class Character implements Creature{
             System.out.println("生存状況：生存");
             return true;
         }else{
-            System.out.println("生存状況：死亡");
+            System.out.println("生存状況：戦闘不能");
             return false;
         }
     }

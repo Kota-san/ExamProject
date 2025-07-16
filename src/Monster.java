@@ -17,7 +17,7 @@ public abstract class Monster implements Creature{
     }
     public void setHp(int hp) {
         if (hp < 0) {
-            throw new IllegalArgumentException("初期設定に誤りがあるため、キャラクターを作成できませんでした");
+            throw new IllegalArgumentException("");
         }
         this.hp = hp;
     }
