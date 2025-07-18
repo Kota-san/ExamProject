@@ -26,7 +26,7 @@ public class GameMaster {
             monster.showStatus();
         }
 
-        System.out.println("味方の総攻撃！");
+        System.out.println("\n味方の総攻撃！");
         for(int i = 0; i < 3; i++) {
             for(int j = 0; j < 3; j++) {
                 try {
@@ -37,7 +37,7 @@ public class GameMaster {
                 }
             }
         }
-        System.out.println("敵の総攻撃！");
+        System.out.println("\n敵の総攻撃！");
         for(int i = 0; i < 3; i++) {
             for(int j = 0; j < 3; j++) {
                 try {
@@ -48,7 +48,7 @@ public class GameMaster {
                 }
             }
         }
-        System.out.println("ダメージを受けた" + allyParty.get(0).getName() + "が突然光りだした！");
+        System.out.println("\nダメージを受けた" + allyParty.get(0).getName() + "が突然光りだした！");
         System.out.println(allyParty.get(0).getName() + "はスーパーヒーローに変身した！");
         allyParty.set(0, new SuperHero((Hero)allyParty.get(0)));
         for(int i = 0; i < enemyParty.size(); i++) {
@@ -56,7 +56,7 @@ public class GameMaster {
                 allyParty.get(0).attack(enemyParty.get(i));
             } catch (IllegalArgumentException e) {
                 enemyParty.get(i).setHp(0);
-                System.out.println("エラー: " + e.getMessage());
+                System.out.println(e.getMessage());
             }
         }
         System.out.println("---味方パーティ最終ステータス---");
