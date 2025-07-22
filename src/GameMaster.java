@@ -1,80 +1,107 @@
 import java.util.ArrayList;
 public class GameMaster {
-    public static void main(String[] args) {
+    public static void main(String[] args){
+        GameMaster game = new GameMaster();
+        game.startGame();
+    }
+
+    public void startGame(){
+        ArrayList<Character> party = new ArrayList<>();
         Hero hero = new Hero("勇者",100,"剣");
-        ArrayList<Character> allyParty = new ArrayList<>();
-        ArrayList<Monster> enemyParty = new ArrayList<>();
+        Wizard wizard = new Wizard("魔法使い",60,30);
+        Thief thief = new Thief("盗賊",70);
+        ArrayList<Monster> monsters = new ArrayList<>();
+
+        try{
+            party.add(hero);
+            party.add(wizard);
+            party.add(thief);
+        }catch (IllegalArgumentException e){
+            System.err.println(e.getMessage());
+            System.out.println("エラーが発生しました。\nゲームを開始できません。");
+            return;
+        }
 
         try {
-            allyParty.add(hero);
-            allyParty.add(new Wizard("魔法使い",60,20));
-            allyParty.add(new Thief("盗賊",70));
-
-            enemyParty.add(new Matango("お化けキノコ",45));
-            enemyParty.add(new Goblin("ゴブリン",50));
-            enemyParty.add(new Slime("スライム",40));
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            monsters.add(new Matango('A',45));
+            monsters.add(new Goblin('A',50));
+            monsters.add(new Slime('A',40));
+        }catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            System.out.println("エラーが発生しました。\nゲームを開始できません。");
+            return;
         }
 
         System.out.println("---味方パーティ---");
-        for(Character character : allyParty) {
-            character.showStatus();
+        for(Character member : party){
+            member.showStatus();
         }
-        System.out.println("---敵パーティ---");
-        for(Monster monster : enemyParty) {
+        System.out.println("---敵グループ---");
+        for(Monster monster : monsters){
             monster.showStatus();
         }
 
         System.out.println("\n味方の総攻撃！");
-        for(int i = 0; i < 3; i++) {
-            for(int j = 0; j < 3; j++) {
-                try {
-                    allyParty.get(i).attack(enemyParty.get(j));
-                } catch (IllegalArgumentException e) {
-                    enemyParty.get(j).setHp(0);
-                    System.out.println("エラー: " + e.getMessage());
-                }
+        if(hero.isAlive()){
+            for(Monster targetMonster:monsters){
+                hero.attack(targetMonster);
             }
         }
+        if(wizard.isAlive()){
+            for(Monster targetMonster:monsters){
+                wizard.attack(targetMonster);
+            }
+        }
+        if(thief.isAlive()){
+            for(Monster targetMonster:monsters){
+                thief.attack(targetMonster);
+            }
+        }
+
         System.out.println("\n敵の総攻撃！");
-        for(int i = 0; i < 3; i++) {
-            for(int j = 0; j < 3; j++) {
-                try {
-                    enemyParty.get(i).attack(allyParty.get(j));
-                } catch (IllegalArgumentException e) {
-                    allyParty.get(j).setHp(0);
-                    System.out.println("エラー: " + e.getMessage());
+        for(Monster attackerM:new ArrayList<>(monsters)){
+            if(!attackerM.isAlive()){
+                continue;
+            }
+            for(Character targetCharacter:party){
+                if(targetCharacter.isAlive()){
+                    attackerM.attack(targetCharacter);
                 }
             }
         }
-        System.out.println("\nダメージを受けた" + allyParty.get(0).getName() + "が突然光りだした！");
-        System.out.println(allyParty.get(0).getName() + "はスーパーヒーローに変身した！");
-        allyParty.set(0, new SuperHero((Hero)allyParty.get(0)));
-        for(int i = 0; i < enemyParty.size(); i++) {
-            try {
-                allyParty.get(0).attack(enemyParty.get(i));
-            } catch (IllegalArgumentException e) {
-                enemyParty.get(i).setHp(0);
-                System.out.println(e.getMessage());
+
+        System.out.println("\nダメージを受けた勇者が突然光りだした！");
+        SuperHero superHero = new SuperHero(hero);
+        for(int i=0; i< party.size(); i++){
+            if(party.get(i)==hero){
+                party.set(i,superHero);
+                break;
             }
         }
-        System.out.println("---味方パーティ最終ステータス---");
-        for(Character character : allyParty) {
-            character.showStatus();
-            if(character.isAlive()) {
-                System.out.println("生存状況：生存");
+        System.out.println("\n勇者はスーパーヒーローに進化した！");
+        if(superHero.isAlive()){
+            for(Monster targetMonster:monsters){
+                superHero.attack(targetMonster);
+            }
+        }
+
+        System.out.println("\n---味方パーティ最終ステータス---");
+        for(Character member : party){
+            member.showStatus();
+            if(member.isAlive()){
+                System.out.println(member.getName()+"：生存");
             }else{
-                System.out.println("生存状況：戦闘不能");
+                System.out.println(member.getName()+"：死亡");
             }
         }
-        System.out.println("---敵パーティ最終ステータス---");
-        for(Monster monster : enemyParty) {
+
+        System.out.println("\n---敵グループ最終ステータス---");
+        for(Monster monster : monsters){
             monster.showStatus();
-            if(monster.isAlive()) {
-                System.out.println("生存状況：生存");
+            if(monster.isAlive()){
+                System.out.println(monster.getName()+"：生存");
             }else{
-                System.out.println("生存状況：討伐済み");
+                System.out.println(monster.getName()+"：討伐済み");
             }
         }
     }
